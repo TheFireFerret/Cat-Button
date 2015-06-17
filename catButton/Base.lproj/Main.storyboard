@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4qA-Pb-Ez3">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="catButton" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqG-UL-vQT" userLabel="blurImage">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="611"/>
+                                <animations/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRv-2P-O8g">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="NiE-YE-mf3">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <animations/>
+                                </view>
+                                <animations/>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGa-qz-uXl">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yGr-AH-OPO">
+                                <rect key="frame" x="260" y="468" width="80" height="80"/>
+                                <animations/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <state key="normal" image="catbutton"/>
+                                <connections>
+                                    <action selector="catButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cey-GA-FCa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="yGr-AH-OPO" secondAttribute="bottom" constant="20" symbolic="YES" id="0l0-Ht-cRY"/>
+                            <constraint firstAttribute="trailing" secondItem="gqG-UL-vQT" secondAttribute="trailing" id="AHq-14-Nf8"/>
+                            <constraint firstItem="gqG-UL-vQT" firstAttribute="trailing" secondItem="gGa-qz-uXl" secondAttribute="trailing" id="Af0-Zp-Xew"/>
+                            <constraint firstItem="gqG-UL-vQT" firstAttribute="leading" secondItem="KRv-2P-O8g" secondAttribute="leading" id="Et0-0O-RrG"/>
+                            <constraint firstAttribute="bottom" secondItem="gqG-UL-vQT" secondAttribute="bottom" id="GYg-ph-Wd1"/>
+                            <constraint firstItem="gqG-UL-vQT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="M1X-bz-fre"/>
+                            <constraint firstItem="gqG-UL-vQT" firstAttribute="centerY" secondItem="KRv-2P-O8g" secondAttribute="centerY" id="NTY-yn-Nat"/>
+                            <constraint firstItem="KRv-2P-O8g" firstAttribute="bottom" secondItem="gGa-qz-uXl" secondAttribute="bottom" id="NpT-Wf-iSk"/>
+                            <constraint firstItem="gqG-UL-vQT" firstAttribute="centerX" secondItem="yGr-AH-OPO" secondAttribute="centerX" id="Ufi-wO-lnO"/>
+                            <constraint firstItem="gqG-UL-vQT" firstAttribute="leading" secondItem="gGa-qz-uXl" secondAttribute="leading" id="Uid-f2-OY5"/>
+                            <constraint firstItem="gqG-UL-vQT" firstAttribute="trailing" secondItem="KRv-2P-O8g" secondAttribute="trailing" id="XN2-Oy-fS2"/>
+                            <constraint firstItem="gqG-UL-vQT" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="dq3-cV-Kpt"/>
+                            <constraint firstItem="gGa-qz-uXl" firstAttribute="top" secondItem="gqG-UL-vQT" secondAttribute="top" id="sPX-3b-9Of"/>
+                            <constraint firstItem="gqG-UL-vQT" firstAttribute="bottom" secondItem="gGa-qz-uXl" secondAttribute="bottom" id="tiI-G7-KDg"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="NpT-Wf-iSk"/>
+                                <exclude reference="sPX-3b-9Of"/>
+                                <exclude reference="AHq-14-Nf8"/>
+                                <exclude reference="Af0-Zp-Xew"/>
+                                <exclude reference="Et0-0O-RrG"/>
+                                <exclude reference="GYg-ph-Wd1"/>
+                                <exclude reference="M1X-bz-fre"/>
+                                <exclude reference="NTY-yn-Nat"/>
+                                <exclude reference="Ufi-wO-lnO"/>
+                                <exclude reference="Uid-f2-OY5"/>
+                                <exclude reference="XN2-Oy-fS2"/>
+                                <exclude reference="dq3-cV-Kpt"/>
+                                <exclude reference="tiI-G7-KDg"/>
+                                <exclude reference="0l0-Ht-cRY"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="NpT-Wf-iSk"/>
+                                <include reference="sPX-3b-9Of"/>
+                                <include reference="AHq-14-Nf8"/>
+                                <include reference="Af0-Zp-Xew"/>
+                                <include reference="Et0-0O-RrG"/>
+                                <include reference="GYg-ph-Wd1"/>
+                                <include reference="M1X-bz-fre"/>
+                                <include reference="NTY-yn-Nat"/>
+                                <include reference="Ufi-wO-lnO"/>
+                                <include reference="Uid-f2-OY5"/>
+                                <include reference="XN2-Oy-fS2"/>
+                                <include reference="dq3-cV-Kpt"/>
+                                <include reference="tiI-G7-KDg"/>
+                                <include reference="0l0-Ht-cRY"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="cmN-ME-BWI">
+                        <barButtonItem key="backBarButtonItem" title="Done" id="dty-tN-uBZ"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="vP4-Q7-piE">
+                            <connections>
+                                <action selector="shareButton:" destination="vXZ-lx-hvc" id="xlC-Vp-x8w"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="ziO-xG-RL5">
+                            <connections>
+                                <segue destination="2HS-rm-y5Q" kind="show" id="HuQ-Yg-NS3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cat" destination="gGa-qz-uXl" id="xRk-Ug-k8S"/>
+                        <outlet property="catbg" destination="gqG-UL-vQT" id="FJQ-JD-yDJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2554.5" y="539.25"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="KZx-tj-bKj">
+            <objects>
+                <viewController title="Settings" id="2HS-rm-y5Q" customClass="Settings" customModule="catButton" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cZg-uY-Owy"/>
+                        <viewControllerLayoutGuide type="bottom" id="7jG-ii-Ud0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Er-GN-y6k">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nvt-VL-hRZ">
+                                <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="Low"/>
+                                    <segment title="Medium"/>
+                                    <segment title="High"/>
+                                </segments>
+                                <connections>
+                                    <action selector="ImgQualityPressed:" destination="2HS-rm-y5Q" eventType="valueChanged" id="xbr-XA-AXq"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="1g3-Mh-aek">
+                                <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="Fill"/>
+                                    <segment title="Fit"/>
+                                </segments>
+                                <connections>
+                                    <action selector="ImgAspect:" destination="2HS-rm-y5Q" eventType="valueChanged" id="qqm-NW-Qin"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1g3-Mh-aek" firstAttribute="leading" secondItem="Nvt-VL-hRZ" secondAttribute="leading" id="9NF-k0-301"/>
+                            <constraint firstItem="Nvt-VL-hRZ" firstAttribute="centerX" secondItem="5Er-GN-y6k" secondAttribute="centerX" id="Z9g-XX-0nh"/>
+                            <constraint firstItem="Nvt-VL-hRZ" firstAttribute="top" secondItem="cZg-uY-Owy" secondAttribute="bottom" constant="188" id="j0j-5Y-1jF"/>
+                            <constraint firstItem="Nvt-VL-hRZ" firstAttribute="trailing" secondItem="1g3-Mh-aek" secondAttribute="trailing" id="qjG-x5-2KW"/>
+                            <constraint firstItem="Nvt-VL-hRZ" firstAttribute="leading" secondItem="5Er-GN-y6k" secondAttribute="leadingMargin" constant="69" id="tzm-so-I2b"/>
+                            <constraint firstItem="7jG-ii-Ud0" firstAttribute="top" secondItem="1g3-Mh-aek" secondAttribute="bottom" constant="355" id="ubo-fs-AMg"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Nvt-VL-hRZ"/>
+                                <exclude reference="1g3-Mh-aek"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="ubo-fs-AMg"/>
+                                <exclude reference="9NF-k0-301"/>
+                                <exclude reference="Z9g-XX-0nh"/>
+                                <exclude reference="j0j-5Y-1jF"/>
+                                <exclude reference="qjG-x5-2KW"/>
+                                <exclude reference="tzm-so-I2b"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Nvt-VL-hRZ"/>
+                                <include reference="1g3-Mh-aek"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="ubo-fs-AMg"/>
+                                <include reference="9NF-k0-301"/>
+                                <include reference="Z9g-XX-0nh"/>
+                                <include reference="j0j-5Y-1jF"/>
+                                <include reference="qjG-x5-2KW"/>
+                                <include reference="tzm-so-I2b"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="ImgAspect" destination="1g3-Mh-aek" id="hQ2-2x-l5t"/>
+                        <outlet property="ImgQuality" destination="Nvt-VL-hRZ" id="gOn-pz-iG9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qza-fU-5S8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3241.5" y="539.25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lOk-4a-XYq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4qA-Pb-Ez3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cpE-AE-LaR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="EUI-5z-o2k">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="8fK-YE-djs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lhB-os-hZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1870.5" y="539.25"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="catbutton" width="80" height="80"/>
+    </resources>
+</document>
