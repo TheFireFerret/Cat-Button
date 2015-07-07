@@ -40,6 +40,7 @@ class ViewController: UIViewController {
 		if let aspectIndex = defaults.stringForKey("ImageAspect"), qualIndex = defaults.stringForKey("ImageQuality")
 		{
 			setImageFit(aspectIndex.toInt()!)
+//			println("testwillappear?")
 			setImageQuality(qualIndex.toInt()!)
 		}
 	}
@@ -52,11 +53,13 @@ class ViewController: UIViewController {
 	//retrieves image data from URL with TheCatAPI
 	func getDataFromUrl(url:NSURL, completion: ((data: NSData?, error: NSError!) -> Void)) {
 		var sourceURL = url
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
 			completion(data: data, error: error)
 			if let httpResponse = response as? NSHTTPURLResponse {
 				self.imgSource = httpResponse.URL!.absoluteString!
 			}
+			UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 			}.resume()
 	}
 	
@@ -84,8 +87,10 @@ class ViewController: UIViewController {
 	func setImageFit(aspect: IntegerLiteralType){
 		if (aspect == 0){
 			self.imageAspect = UIViewContentMode.ScaleAspectFill
+//			println("fill")
 		} else {
 			self.imageAspect = UIViewContentMode.ScaleAspectFit
+//			println("fit")
 		}
 	}
 	
