@@ -10,31 +10,21 @@ import Foundation
 import UIKit
 
 class Settings :UIViewController {
-    
+	
+	//persistent settings using NSUserDefaults
     let defaults = NSUserDefaults.standardUserDefaults()
     
-    @IBOutlet var ImgQuality: UISegmentedControl!
     @IBOutlet var ImgAspect: UISegmentedControl!
-    
-    @IBAction func ImgQualityPressed(sender: AnyObject) {
-        let num = sender.selectedSegmentIndex
-        defaults.setObject(num, forKey: "ImageQuality")
-    }
-    
+
     @IBAction func ImgAspect(sender: AnyObject) {
         let num = sender.selectedSegmentIndex
         defaults.setObject(num, forKey: "ImageAspect")
     }
     
     override func viewDidLoad() {
-        if let qualityIndex = defaults.stringForKey("ImageQuality")
-        {
-            ImgQuality.selectedSegmentIndex = qualityIndex.toInt()!
-        }
-        
         if let aspectIndex = defaults.stringForKey("ImageAspect")
         {
-            ImgAspect.selectedSegmentIndex = aspectIndex.toInt()!
+            ImgAspect.selectedSegmentIndex = Int(aspectIndex)!
         }
     }
 }

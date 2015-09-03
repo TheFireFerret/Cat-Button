@@ -13,15 +13,17 @@ class ViewController: UIViewController {
 	
 	var imgSource = NSString()
 	var imageAspect = UIViewContentMode.ScaleAspectFit
-	var imageQual = "med"
 	var catImage = UIImage()
+	var nextImage = UIImage()
 	let defaults = NSUserDefaults.standardUserDefaults()
 	
 	@IBOutlet var cat: UIImageView!
 	@IBOutlet var catbg: UIImageView!
 	
+	@IBOutlet var catButton: UIButton!
 	@IBAction func catButton(sender: AnyObject) {
 		setImage()
+		preloadImage()
 	}
 	
 	//button to load new cat picture
@@ -33,16 +35,17 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setImage()
+		firstLoad()
 	}
 	
+	//sets image aspect on view load
 	override func viewWillAppear(animated: Bool) {
-		if let aspectIndex = defaults.stringForKey("ImageAspect"), qualIndex = defaults.stringForKey("ImageQuality")
+		if let aspectIndex = defaults.stringForKey("ImageAspect")
 		{
-			setImageFit(aspectIndex.toInt()!)
-//			println("testwillappear?")
-			setImageQuality(qualIndex.toInt()!)
+			setImageFit(Int(aspectIndex)!)
 		}
+		self.cat.contentMode = self.imageAspect
+
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -50,14 +53,14 @@ class ViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
-	//retrieves image data from URL with TheCatAPI
+	//retrieves image data from URL using TheCatAPI
 	func getDataFromUrl(url:NSURL, completion: ((data: NSData?, error: NSError!) -> Void)) {
-		var sourceURL = url
+		//		var sourceURL = url
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
 			completion(data: data, error: error)
 			if let httpResponse = response as? NSHTTPURLResponse {
-				self.imgSource = httpResponse.URL!.absoluteString!
+				self.imgSource = httpResponse.URL!.absoluteString
 			}
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 			}.resume()
@@ -65,8 +68,32 @@ class ViewController: UIViewController {
 	
 	//sets the UIImage using data from getDataFromUrl
 	func setImage(){
-		let url = NSURL(string: "http://thecatapi.com/api/images/get?format=src&type=jpg,png&API_key=MjEzODM&size=" + imageQual)
-		//		println(url)
+		
+		self.catImage = self.nextImage
+		
+		dispatch_async(dispatch_get_main_queue()) {
+			self.cat.contentMode = self.imageAspect
+			self.cat.image = self.catImage
+			self.catbg.image = self.catImage
+			
+		}
+	}
+	
+	func preloadImage(){
+		let url = NSURL(string: "http://thecatapi.com/api/images/get?format=src&type=jpg,png&API_key=MjEzODM&size=full")
+		getDataFromUrl(url!) {  (data, error) in
+			//no internet?
+			if((error) != nil){
+				self.nextImage = UIImage(named: "nointernet")!
+			} else {
+				self.nextImage = UIImage(data: data!)!
+			}
+		}
+		
+	}
+	
+	func firstLoad(){
+		let url = NSURL(string: "http://thecatapi.com/api/images/get?format=src&type=jpg,png&API_key=MjEzODM&size=full")
 		getDataFromUrl(url!) {  (data, error) in
 			//no internet?
 			if((error) != nil){
@@ -81,27 +108,16 @@ class ViewController: UIViewController {
 				self.catbg.image = self.catImage
 			}
 		}
+		
+		preloadImage()
 	}
 	
 	//changes the image aspect size
 	func setImageFit(aspect: IntegerLiteralType){
 		if (aspect == 0){
 			self.imageAspect = UIViewContentMode.ScaleAspectFill
-//			println("fill")
 		} else {
 			self.imageAspect = UIViewContentMode.ScaleAspectFit
-//			println("fit")
-		}
-	}
-	
-	//changes the image url to change image quality
-	func setImageQuality(qual: IntegerLiteralType){
-		if (qual == 2){
-			self.imageQual = "full"
-		} else if (qual == 1){
-			self.imageQual = "med"
-		} else {
-			self.imageQual = "small"
 		}
 	}
 	
