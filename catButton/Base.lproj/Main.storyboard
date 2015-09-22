@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="15A263e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4qA-Pb-Ez3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4qA-Pb-Ez3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -141,7 +142,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                             </imageView>
-                            <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="1g3-Mh-aek">
+                            <segmentedControl contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="1g3-Mh-aek">
                                 <rect key="frame" x="-61" y="-14" width="123" height="29"/>
                                 <animations/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -153,7 +154,7 @@
                                     <action selector="ImgAspect:" destination="2HS-rm-y5Q" eventType="valueChanged" id="qqm-NW-Qin"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks to http://thecatapi.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBb-3J-sXP" userLabel="stuff">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks to thecatapi.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBb-3J-sXP" userLabel="stuff">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <constraints>
@@ -196,6 +197,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Aspect Ratio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xX0-Fk-Jdd">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8ss-gh-had">
                                         <variation key="heightClass=regular-widthClass=compact" constant="32"/>
@@ -220,14 +222,43 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMJ-d7-DAC">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="eBK-k2-3bU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eBK-k2-3bU"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="eBK-k2-3bU"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mor-v0-FRX">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kr0-Ta-045" firstAttribute="top" secondItem="5Er-GN-y6k" secondAttribute="top" id="07Y-mM-l0R"/>
+                            <constraint firstItem="EMJ-d7-DAC" firstAttribute="centerX" secondItem="ZBb-3J-sXP" secondAttribute="centerX" id="48h-7T-VBy"/>
                             <constraint firstItem="1g3-Mh-aek" firstAttribute="centerX" secondItem="ZBb-3J-sXP" secondAttribute="centerX" id="6EE-Ba-7gN"/>
                             <constraint firstAttribute="bottom" secondItem="A3g-E8-vZK" secondAttribute="bottom" constant="20" symbolic="YES" id="76j-Qg-ov6"/>
                             <constraint firstItem="A3g-E8-vZK" firstAttribute="leading" secondItem="5Er-GN-y6k" secondAttribute="leadingMargin" constant="50" id="Cb4-te-FlO"/>
+                            <constraint firstItem="mor-v0-FRX" firstAttribute="leading" secondItem="1g3-Mh-aek" secondAttribute="leading" id="KMq-Lt-W06"/>
                             <constraint firstItem="ZBb-3J-sXP" firstAttribute="centerX" secondItem="A3g-E8-vZK" secondAttribute="centerX" id="Unk-k8-kug"/>
                             <constraint firstItem="A3g-E8-vZK" firstAttribute="centerX" secondItem="5Er-GN-y6k" secondAttribute="centerX" id="VUe-jF-VxF"/>
                             <constraint firstItem="ZBb-3J-sXP" firstAttribute="leading" secondItem="5Er-GN-y6k" secondAttribute="leadingMargin" constant="73" id="W8Y-1Q-KuI"/>
@@ -235,7 +266,15 @@
                             <constraint firstItem="xX0-Fk-Jdd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cZg-uY-Owy" secondAttribute="bottom" constant="126" id="awP-JY-9jm">
                                 <variation key="heightClass=regular-widthClass=compact" constant="115"/>
                             </constraint>
+                            <constraint firstItem="ZBb-3J-sXP" firstAttribute="top" secondItem="mor-v0-FRX" secondAttribute="bottom" constant="13" id="brk-JI-HcW">
+                                <variation key="heightClass=regular-widthClass=compact" constant="47"/>
+                            </constraint>
+                            <constraint firstItem="ZBb-3J-sXP" firstAttribute="top" secondItem="EMJ-d7-DAC" secondAttribute="bottom" constant="96" id="eq0-5c-wIT"/>
                             <constraint firstItem="1g3-Mh-aek" firstAttribute="top" secondItem="xX0-Fk-Jdd" secondAttribute="bottom" constant="8" symbolic="YES" id="i6U-ig-phL"/>
+                            <constraint firstItem="mor-v0-FRX" firstAttribute="top" secondItem="EMJ-d7-DAC" secondAttribute="bottom" constant="42" id="koc-Fk-qHd">
+                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="mor-v0-FRX" firstAttribute="trailing" secondItem="1g3-Mh-aek" secondAttribute="trailing" id="nsp-9L-3Py"/>
                             <constraint firstItem="1g3-Mh-aek" firstAttribute="leading" secondItem="5Er-GN-y6k" secondAttribute="leadingMargin" constant="10" id="quQ-bz-3df"/>
                             <constraint firstItem="kr0-Ta-045" firstAttribute="leading" secondItem="5Er-GN-y6k" secondAttribute="leading" id="u0d-0O-IQN"/>
                             <constraint firstItem="kr0-Ta-045" firstAttribute="bottom" secondItem="7jG-ii-Ud0" secondAttribute="top" id="x4V-kd-0MM"/>
@@ -250,19 +289,27 @@
                                 <exclude reference="ZBb-3J-sXP"/>
                                 <exclude reference="A3g-E8-vZK"/>
                                 <exclude reference="xX0-Fk-Jdd"/>
+                                <exclude reference="EMJ-d7-DAC"/>
+                                <exclude reference="mor-v0-FRX"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="07Y-mM-l0R"/>
                                 <exclude reference="u0d-0O-IQN"/>
                                 <exclude reference="x4V-kd-0MM"/>
+                                <exclude reference="awP-JY-9jm"/>
+                                <exclude reference="y04-78-UXM"/>
                                 <exclude reference="6EE-Ba-7gN"/>
                                 <exclude reference="i6U-ig-phL"/>
                                 <exclude reference="quQ-bz-3df"/>
                                 <exclude reference="xxb-nZ-8Vn"/>
-                                <exclude reference="awP-JY-9jm"/>
-                                <exclude reference="y04-78-UXM"/>
+                                <exclude reference="48h-7T-VBy"/>
+                                <exclude reference="KMq-Lt-W06"/>
+                                <exclude reference="koc-Fk-qHd"/>
+                                <exclude reference="nsp-9L-3Py"/>
                                 <exclude reference="Unk-k8-kug"/>
                                 <exclude reference="W8Y-1Q-KuI"/>
+                                <exclude reference="brk-JI-HcW"/>
+                                <exclude reference="eq0-5c-wIT"/>
                                 <exclude reference="76j-Qg-ov6"/>
                                 <exclude reference="Cb4-te-FlO"/>
                                 <exclude reference="VUe-jF-VxF"/>
@@ -275,19 +322,27 @@
                                 <include reference="ZBb-3J-sXP"/>
                                 <include reference="A3g-E8-vZK"/>
                                 <include reference="xX0-Fk-Jdd"/>
+                                <include reference="EMJ-d7-DAC"/>
+                                <include reference="mor-v0-FRX"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="07Y-mM-l0R"/>
                                 <include reference="u0d-0O-IQN"/>
                                 <include reference="x4V-kd-0MM"/>
+                                <include reference="awP-JY-9jm"/>
+                                <include reference="y04-78-UXM"/>
                                 <include reference="6EE-Ba-7gN"/>
                                 <include reference="i6U-ig-phL"/>
                                 <include reference="quQ-bz-3df"/>
                                 <include reference="xxb-nZ-8Vn"/>
-                                <include reference="awP-JY-9jm"/>
-                                <include reference="y04-78-UXM"/>
+                                <include reference="48h-7T-VBy"/>
+                                <include reference="KMq-Lt-W06"/>
+                                <include reference="koc-Fk-qHd"/>
+                                <include reference="nsp-9L-3Py"/>
                                 <include reference="Unk-k8-kug"/>
                                 <include reference="W8Y-1Q-KuI"/>
+                                <include reference="brk-JI-HcW"/>
+                                <include reference="eq0-5c-wIT"/>
                                 <include reference="76j-Qg-ov6"/>
                                 <include reference="Cb4-te-FlO"/>
                                 <include reference="VUe-jF-VxF"/>
@@ -298,6 +353,7 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="ImgAspect" destination="1g3-Mh-aek" id="hQ2-2x-l5t"/>
+                        <outlet property="sourceurl" destination="mor-v0-FRX" id="n9E-UZ-ZJo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qza-fU-5S8" userLabel="First Responder" sceneMemberID="firstResponder"/>

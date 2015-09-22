@@ -11,7 +11,8 @@ import AVFoundation
 
 class ViewController: UIViewController {
 	
-	var imgSource = NSString()
+	
+	var imgSource = String()
 	var imageAspect = UIViewContentMode.ScaleAspectFit
 	var catImage = UIImage()
 	var nextImage = UIImage()
@@ -21,12 +22,14 @@ class ViewController: UIViewController {
 	@IBOutlet var catbg: UIImageView!
 	
 	@IBOutlet var catButton: UIButton!
+	
+	//button to load new picture
 	@IBAction func catButton(sender: AnyObject) {
 		setImage()
 		preloadImage()
 	}
 	
-	//button to load new cat picture
+	//share button
 	@IBAction func shareButton(sender: AnyObject) {
 		let objectsToShare = [self.catImage]
 		let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
@@ -45,7 +48,6 @@ class ViewController: UIViewController {
 			setImageFit(Int(aspectIndex)!)
 		}
 		self.cat.contentMode = self.imageAspect
-
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -55,7 +57,7 @@ class ViewController: UIViewController {
 	
 	//retrieves image data from URL using TheCatAPI
 	func getDataFromUrl(url:NSURL, completion: ((data: NSData?, error: NSError!) -> Void)) {
-		//		var sourceURL = url
+
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
 			completion(data: data, error: error)
@@ -64,11 +66,11 @@ class ViewController: UIViewController {
 			}
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 			}.resume()
+		
 	}
 	
 	//sets the UIImage using data from getDataFromUrl
 	func setImage(){
-		
 		self.catImage = self.nextImage
 		
 		dispatch_async(dispatch_get_main_queue()) {
@@ -79,10 +81,11 @@ class ViewController: UIViewController {
 		}
 	}
 	
+	//preloads the next image
 	func preloadImage(){
 		let url = NSURL(string: "http://thecatapi.com/api/images/get?format=src&type=jpg,png&API_key=MjEzODM&size=full")
 		getDataFromUrl(url!) {  (data, error) in
-			//no internet?
+			//no internet check
 			if((error) != nil){
 				self.nextImage = UIImage(named: "nointernet")!
 			} else {
@@ -92,10 +95,11 @@ class ViewController: UIViewController {
 		
 	}
 	
+	//loads the very first image
 	func firstLoad(){
 		let url = NSURL(string: "http://thecatapi.com/api/images/get?format=src&type=jpg,png&API_key=MjEzODM&size=full")
 		getDataFromUrl(url!) {  (data, error) in
-			//no internet?
+			//no internet check
 			if((error) != nil){
 				self.catImage = UIImage(named: "nointernet")!
 			} else {
@@ -108,7 +112,6 @@ class ViewController: UIViewController {
 				self.catbg.image = self.catImage
 			}
 		}
-		
 		preloadImage()
 	}
 	
@@ -119,6 +122,13 @@ class ViewController: UIViewController {
 		} else {
 			self.imageAspect = UIViewContentMode.ScaleAspectFit
 		}
+	}
+	
+	//doesn't work TODO :C
+	func shareSource() -> NSString{
+		print(imgSource)
+		print("testing")
+		return self.imgSource
 	}
 	
 }
